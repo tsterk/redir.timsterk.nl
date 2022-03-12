@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: redirects-config
+  namespace: redirector
+  labels:
+    app.kubernetes.io/instance: redirector
+    app.kubernetes.io/component: nginx
+    app.kubernetes.io/part-of: redirector
+data:
+  redirects.conf: |
+    server {
+      listen 8080;
+      server_name padvindersclub.nl;
+      return 302 https://www.hilfertheem.nl;
+    }
+    server {
+      listen 8080;
+      server_name www.padvindersclub.nl;
+      return 302 https://www.hilfertheem.nl;
+    }
+    server {
+      listen 8080;
+      server_name scoutinghilversum.nl;
+      return 302 https://www.hilfertheem.nl;
+    }
+    server {
+      listen 8080;
+      server_name www.scoutinghilversum.nl;
+      return 302 https://www.hilfertheem.nl;
+    }
+    server {
+      listen 8080;
+      server_name rsw-gooi.nl;
+      return 302 https://rsw.regiogooi.nl;
+    }
+    server {
+      listen 8080;
+      server_name www.rsw-gooi.nl;
+      return 302 https://rsw.regiogooi.nl;
+    }
+    server {
+      listen 8080;
+      server_name rswgooi.nl;
+      return 302 https://rsw.regiogooi.nl;
+    }
+    server {
+      listen 8080;
+      server_name www.rswgooi.nl;
+      return 302 https://rsw.regiogooi.nl;
+    }
