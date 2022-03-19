@@ -3,7 +3,14 @@ kind: Ingress
 metadata:
   name: scoutinghilversum-nl
   namespace: redirector
+  annotations:
+    cert-manager.io/issuer: "letsencrypt"
 spec:
+  tls:
+  - hosts:
+    - scoutinghilversum.nl
+    - www.scoutinghilversum.nl
+    secretName: www-scoutinghilversum-nl
   ingressClassName: nginx
   rules:
     - host: scoutinghilversum.nl
