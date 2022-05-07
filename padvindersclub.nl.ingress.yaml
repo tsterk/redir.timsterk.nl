@@ -3,6 +3,14 @@ kind: Ingress
 metadata:
   name: padvindersclub-nl
   namespace: redirector
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt"
+spec:
+  tls:
+  - hosts:
+    - padvindersclub.nl
+    - www.padvindersclub.nl
+    secretName: www-padvindersclub-nl
 spec:
   ingressClassName: nginx
   rules:
