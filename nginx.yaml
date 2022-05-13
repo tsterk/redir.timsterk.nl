@@ -29,6 +29,7 @@ metadata:
   name: nginx
   namespace: redirector
 spec:
+  revisionHistoryLimit: 0
   replicas: 2
   selector:
     matchLabels:
